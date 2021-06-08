@@ -1,0 +1,70 @@
+#include <stdlib.h>
+#include <stdio.h>
+void QuickSortRemix(int a[], int n);
+int Pivote(int a[], int n);
+int Compareitor(int a[], int n, int pivo);//Esta funcion es codigo muerto
+int Nucleo(int a[], int n);//Esto seria el nucleo del QuickSort
+//El intercambia es una funcion vieja que tenia wardada
+void Intercambia(int *e1,int *e2){//Los valores se mandan desde el main con un & para que traigan su direccion de memoria
+	int Vessel;
+	Vessel=*e1; *e1=*e2; *e2=Vessel;
+}
+/*
+NOTA IMPORTANTE: NO REPETIR VALORES EN EL ARREGLO, CUANDO PASA ESO EL LOS ULTIMOS ELEMENTOS NO SE ACOMODAN CORRECTAMENTE
+*/
+int main(){
+	system("color 0a");
+	int a[10],i=0;
+	//a[0]=10;a[1]=9;a[2]=7;a[3]=8;a[4]=6;a[5]=5;a[6]=4;a[7]=3;a[8]=2;a[9]=1;
+	for(i=0;i<=9;i++){
+		printf("--\n");
+		scanf("%d",&a[i]);
+	}
+	QuickSortRemix(a,9); //Intercambia(a[8],a[9]);
+	for(i=0;i<=9;i++){
+		printf("%d-",a[i]);
+	}
+	return 0;
+}
+
+void QuickSortRemix(int a[], int n){
+	int p;
+	if (n>1){
+        p=Nucleo(a,n);
+		QuickSortRemix(a, p);
+		QuickSortRemix(a+p+1, n-p-1);
+	}
+}
+
+int Pivote(int a[], int n){
+	int pivo=0,ub=0,i;
+	pivo=(a[0]+a[n]+a[n/2])/3;//esta linea solo calcula el valor del pivote, falta saber su ubicacion	
+	for(i=0;i<=n;i++){		if(pivo==a[n]){  	ub=n; break;		}	}  
+	if(ub==0){ ub=n/2;	}
+	return ub;
+}
+/*
+int Compareitor(int a[], int n, int pivo){//Esta funcion nos daa la ubicacion del pivote
+	int ub=0,i;
+	for(i=0;i<=n;i++){		if(pivo==a[n]){  	ub=n; n=n*700;		}	}  
+	//el n*700 es para que se rompa el ciclo, no uso break porque no recuerdo si funciona aqui :v
+	//Pongo todo en una linea pa ahorrar espacio
+	return ub;
+}*/
+
+int Nucleo(int a[], int n){
+	int pivo=0,piv2=0,i,c=0;
+	piv2=Pivote(a,n);
+	//piv2=Compareitor(a,n,pivo);
+	//Los ciclos siguientes son para acomodar bien el pivote
+	do{
+		c=0;
+		
+    for(i=0;i<=piv2;i++){		if(a[i]>a[piv2]) {     Intercambia(&a[i],&a[piv2]); 	c++;	}	}
+	
+	for(i=piv2+1;i<=n;i++){		if(a[i]<a[piv2]) {     Intercambia(&a[i],&a[piv2]); c++;	}	}
+	}while(c!=0);
+	
+	return piv2;
+	
+}
