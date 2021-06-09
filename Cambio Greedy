@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+void CambioGredy(int a,int b, int c);
+int main(){
+	system("color 0a");
+	int Dinero[3],dinero2=0;
+	printf("Dime cuanto te debo regresar de cambio\n");
+	printf("Solo recibo numeros de 3 digitos, teclea SOLO el primero de ellos\n");
+	scanf("%d",&Dinero[0]);
+	printf("Ahora el segundo\n");
+	scanf("%d",&Dinero[1]);
+	printf("El tercero y ultimo\n");
+	scanf("%d",&Dinero[2]);
+	dinero2=(Dinero[0]*100)+(Dinero[1]*10)+(Dinero[2]*1);
+	printf("Tu cambio es de %d, se te pagara con:\n",dinero2);
+	CambioGredy(Dinero[0],Dinero[1],Dinero[2]);
+	return 0;
+}
+void CambioGredy(int a,int b, int c){
+	int x=0,y=0,z=0;
+	x=a*10; y=b; z=x+y;
+	printf("%d, monedas de $10\n",z);
+	x=0;y=0;z=0;
+	//Usare un switch porque solo hay 9 casos posibles, manualmente saque la mejor opcion en cada caso
+	switch(c){
+		case 9: printf("1 moneda de $5 y 2 de $2"); break;
+		case 8: printf("1 moneda de $5, otra de $2 y una de $1"); break;
+		case 7: printf("1 moneda de $5 y una de $2"); break;
+		case 6: printf("1 moneda de $5 y otra de $1"); break;
+		case 5: printf("una moneda de sinko peso"); break;
+		case 4: printf("dos monedas de $2"); break;
+		case 3: printf("una de $2 y otra de $1"); break;
+		case 2: printf("solo una de $2"); break;
+		case 1: printf("una de $1"); break;
+		default: printf("Y nada mas"); 
+	}
+	
+	/* Todo esto es codigo muerto, solo lo dejo porque no me estorba funciona masomenos bien
+	if(c>0){
+		x=c;		if((x-5)>=0) printf("1 moneda de $5\n");  y=(c-5)/2;
+		            if(y>=2){ printf("2 monedas de $2\n"); z=c-9;	} 
+		            if(y<2&&y>=1){ printf("1 moneda de $2\n"); z=c-7;	}
+		            if(z>=1) printf("1 moneda de $1");
+	} else{		printf("Y nada mas");	}*/
+}
