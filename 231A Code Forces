@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+//Alvarado Cuellar Axel Ivan
+int main(){
+	system("color 0a");
+	int Juzgado[3], i=1, input=0, ouput=0, o=0;;
+	printf("Cuantas calificaciones seran ingresadas?");
+	scanf("%d",&input);
+	printf("ADVERTENCIA, SOLO INGRESAR VALORES DE 0 O 1 ENTEROS, OTRA COSA HARA QUE EL PROGRAMA COLAPSE\n");
+	do{
+		Juzgado[0]=0; Juzgado[1]=0; Juzgado[2]=0; o=0;
+		printf("Cual fue la calificacion del juez 1?");
+		scanf("%d",&Juzgado[0]);
+		if(Juzgado[0]==1){ o++; }
+		printf("Cual fue la calificacion del juez 2?");
+		scanf("%d",&Juzgado[1]);
+		if(Juzgado[1]==1){ o++; }
+		printf("Cual fue la calificacion del juez 3?");
+		scanf("%d",&Juzgado[2]);
+		if(Juzgado[2]==1){ o++; }
+		if(o>=2){ ouput++; } i++;
+	}while(i<=input);
+	system("cls");
+	printf("el numero de problemas aprobados es: %d",ouput);
+}
