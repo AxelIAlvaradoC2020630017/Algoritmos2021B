@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "Elem.h"
+#include "Arreglos.h"
+int main(){
+	system("color 0a");
+	Elem palabra[50]; int auxiliar[50];
+	int tamano=0,x=0,i=0; 
+	int Matrix[28][3]; for(i=0;i<=28;i++){ Matrix[i+1][0]=i+1;	} for(i=0;i<=28;i++){ Matrix[i+1][2]=i+1;	}
+	
+	return 0;
+}
+
+void ConversionAbcNum(Elem p[], int t, int aux[]){
+	int i;
+	for(i=0;i<=t;i++){
+		switch(p[i]){
+			case 'a': aux[i]=1; break;
+			case 'b': aux[i]=2; break;
+			case 'c': aux[i]=3; break;
+			case 'd': aux[i]=4; break;
+			case 'e': aux[i]=5; break;
+			case 'f': aux[i]=6; break;
+			case 'g': aux[i]=7; break;
+			case 'h': aux[i]=8; break;
+			case 'i': aux[i]=9; break;
+			case 'j': aux[i]=10; break;
+			case 'k': aux[i]=11; break;
+			case 'l': aux[i]=12; break;
+			case 'n': aux[i]=13; break;
+			case 'm': aux[i]=14; break;
+			case 'o': aux[i]=15; break;
+			case 'p': aux[i]=16; break;
+			case 'q': aux[i]=17; break;
+			case 'r': aux[i]=18; break;
+			case 's': aux[i]=19; break;
+			case 't': aux[i]=20; break;
+			case 'u': aux[i]=21; break;
+			case 'v': aux[i]=22; break;
+			case 'w': aux[i]=23; break;
+			case 'x': aux[i]=24; break;
+			case 'y': aux[i]=25; break;
+			case 'z': aux[i]=26; break;
+			case ' ': aux[i]=27; break;
+		}
+	}
+}
+
+int conteo(int aux[], int Matrix[28][3], int t , int x){
+	int Contador=0,i,C2=0;
+	for(C2=1;C2<=27;C2++){
+		Contador=0;
+	         	for(i=0;i<=t;i++){      if(C2==aux[i]) Contador++;    	}  Matrix[i][1]=Contador;
+	}
+	BurbujaM(Matrix[28][3]);
+}
+
+void BurbujaM(int Matrix[28][3]){
+	int i,j;
+	   for(i=0;i<=28;i++){
+	   	    
+	   }
+			if(EsMenor2(a[i],a[i-1]))  Intercambia(a+i,a+i-1);//El nombre de un arreglo contiene la direccion de memoria donde comienza este
+}
+
+
+int EsMenor2(int x int y){
+	return x<y
+}
+void Intercambia2(int *e1,int *e2){//Los valores se mandan desde el main con un & para que traigan su direccion de memoria
+	int Vessel;
+	Vessel=*e1; *e1=*e2; *e2=Vessel;
+}
