@@ -9,6 +9,7 @@ int FiboRMemo(int n, int Fmemo[]);
 //FiboRMem es capaz de calcular correctamente 50 numeros fibonacci, no pruebo con mas porque el consumo de memoria se eleva
 //aun asi FiboRec explota con 50, por lo que vemos una mejora significativa
 //Me gustaria terminar la Memoization en iterativo pero no se me ocurre como XD
+//Actualizacion, el Memoizado calcula 500 numeros en menos de 5 segundos, intente que calcule el millon pero exploto como sospechaba
 int main(){
 	int n=0,i=0;
 	//int fn1=0,fn2=1,fibo=0,x=0,y=0,z=0;
